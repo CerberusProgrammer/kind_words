@@ -6,7 +6,7 @@ class ThemeProvider extends ChangeNotifier {
   ThemeData get appTheme => ThemeData(
         brightness: isDarkMode ? Brightness.dark : Brightness.light,
         useMaterial3: true,
-        colorSchemeSeed: Colors.green,
+        colorSchemeSeed: Colors.purple,
       );
 
   void toggleBrightness() {
