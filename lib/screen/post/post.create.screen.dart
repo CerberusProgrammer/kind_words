@@ -9,7 +9,8 @@ class PostCreateScreen extends StatefulWidget {
 
 class _PostCreateScreenState extends State<PostCreateScreen> {
   int _selectedColor = 1;
-  final List<Color> colorList = [
+
+  final List<Color> _colorList = [
     Colors.pink,
     Colors.purple,
     Colors.indigo,
@@ -18,156 +19,209 @@ class _PostCreateScreenState extends State<PostCreateScreen> {
     Colors.green,
   ];
 
-  double sizeText = 44;
+  late List<Widget> _widgetColorsSelector;
 
-  bool actionTextSizer = false;
-  bool actionColorChanger = false;
-  bool isAction = false;
+  double _sizeText = 44;
+  bool _actionTextSizer = false;
+  bool _actionColorChanger = false;
+  bool _isAction = false;
 
-  final FocusNode focusNode = FocusNode();
-  final TextEditingController textEditingController = TextEditingController();
+  // final FocusNode _focusNode = FocusNode();
+  final TextEditingController _postController = TextEditingController();
 
   @override
-  Widget build(BuildContext context) {
-    List<Widget> widgetColorsSelector =
-        List.generate(colorList.length, (index) {
+  void initState() {
+    super.initState();
+
+    List.generate(_colorList.length, (index) {
       return IconButton(
           onPressed: () {
             setState(() {
               _selectedColor = index;
             });
           },
-          icon: Icon(
-            Icons.circle,
-            color: colorList[index],
-          ));
+          icon: Icon(Icons.circle, color: _colorList[index]));
     });
 
-    widgetColorsSelector.add(
+    _widgetColorsSelector.add(
       IconButton(
         onPressed: () {
           setState(() {
-            actionColorChanger = false;
-            isAction = false;
+            _actionColorChanger = false;
+            _isAction = false;
           });
         },
-        icon: const Icon(
-          Icons.done_rounded,
-          color: Colors.white,
-          size: 30,
-        ),
+        icon: const Icon(Icons.done_rounded, color: Colors.white, size: 30),
       ),
     );
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Crear post'),
       ),
-      body: Align(
-        alignment: Alignment.bottomCenter,
-        child: Container(
-          height: MediaQuery.of(context).size.height / 1.04,
-          color: Theme.of(context).colorScheme.background,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Card(
-              elevation: 0,
-              color: colorList[_selectedColor],
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Form(
-                            child: TextFormField(
-                              textAlign: TextAlign.center,
-                              keyboardType: TextInputType.text,
-                              decoration: InputDecoration(
-                                hintText: 'Be kind',
-                                hintStyle: TextStyle(
-                                  color: Colors.white.withOpacity(0.55),
-                                  fontSize: sizeText,
-                                ),
-                                border: const OutlineInputBorder(
-                                  borderSide: BorderSide.none,
-                                ),
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Card(
+            elevation: 0,
+            color: _colorList[_selectedColor],
+            child: Column(
+              children: [
+                Expanded(
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Form(
+                          child: TextFormField(
+                            controller: _postController,
+                            textAlign: TextAlign.center,
+                            keyboardType: TextInputType.text,
+                            maxLines: null,
+                            cursorColor: Colors.white.withOpacity(0.7),
+                            cursorWidth: 4,
+                            cursorRadius: const Radius.circular(20),
+                            style: TextStyle(
+                              fontSize: _sizeText,
+                              color: Colors.white,
+                            ),
+                            decoration: InputDecoration(
+                              hintText: 'Be kind',
+                              hintStyle: TextStyle(
+                                color: Colors.white.withOpacity(0.55),
+                                fontSize: _sizeText,
+                              ),
+                              border: const OutlineInputBorder(
+                                borderSide: BorderSide.none,
                               ),
                             ),
                           ),
                         ),
-                        Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Card(
-                              color: Colors.white.withAlpha(1),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    if (actionColorChanger)
-                                      SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                1.3,
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Card(
+                            color: Colors.white.withAlpha(1),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  if (_actionColorChanger)
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width /
+                                          1.3,
+                                      height: 46,
+                                      child: Center(
                                         child: SingleChildScrollView(
                                           scrollDirection: Axis.horizontal,
                                           child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
                                             mainAxisSize: MainAxisSize.min,
-                                            children: widgetColorsSelector,
+                                            children: _widgetColorsSelector,
                                           ),
                                         ),
                                       ),
-                                    if (actionTextSizer)
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          SizedBox(
-                                            height: 10,
-                                            child: Slider(
-                                              activeColor:
-                                                  colorList[_selectedColor],
-                                              value: sizeText,
-                                              min: 20,
-                                              max: 72,
-                                              onChanged: (value) {
-                                                setState(() {
-                                                  sizeText = value;
-                                                });
-                                              },
-                                            ),
-                                          ),
-                                          IconButton(
-                                            onPressed: () {
+                                    ),
+                                  if (_actionTextSizer)
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          height: 10,
+                                          child: Slider(
+                                            activeColor:
+                                                _colorList[_selectedColor],
+                                            value: _sizeText,
+                                            min: 20,
+                                            max: 72,
+                                            onChanged: (value) {
                                               setState(() {
-                                                actionTextSizer = false;
-                                                isAction = false;
+                                                _sizeText = value;
                                               });
                                             },
-                                            icon: const Icon(
-                                              Icons.done,
-                                              color: Colors.white,
-                                              size: 30,
-                                            ),
                                           ),
-                                        ],
-                                      )
-                                  ],
-                                ),
+                                        ),
+                                        IconButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              _actionTextSizer = false;
+                                              _isAction = false;
+                                            });
+                                          },
+                                          icon: const Icon(
+                                            Icons.done,
+                                            color: Colors.white,
+                                            size: 30,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  if (!_isAction)
+                                    IconButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          _actionColorChanger = true;
+                                          _isAction = true;
+                                        });
+                                      },
+                                      icon: const Icon(
+                                        Icons.palette,
+                                        color: Colors.white,
+                                        size: 30,
+                                      ),
+                                    ),
+                                  if (!_isAction)
+                                    IconButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          _actionTextSizer = true;
+                                          _isAction = true;
+                                        });
+                                      },
+                                      icon: const Icon(Icons.format_size),
+                                      color: Colors.white,
+                                      iconSize: 30,
+                                    ),
+                                  if (!_isAction)
+                                    SizedBox(
+                                      height: 20,
+                                      child: VerticalDivider(
+                                        thickness: 3,
+                                        color: Colors.white.withOpacity(0.5),
+                                      ),
+                                    ),
+                                  if (!_isAction)
+                                    IconButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      icon: const Icon(
+                                        Icons.upload,
+                                        size: 30,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                ],
                               ),
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
