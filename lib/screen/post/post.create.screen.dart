@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kind_words/models/post.dart';
+import 'package:kind_words/providers/post.provider.dart';
+import 'package:provider/provider.dart';
 
 class PostCreateScreen extends StatefulWidget {
   const PostCreateScreen({super.key});
@@ -31,9 +34,7 @@ class _PostCreateScreenState extends State<PostCreateScreen> {
 
   @override
   void initState() {
-    super.initState();
-
-    List.generate(_colorList.length, (index) {
+    _widgetColorsSelector = List.generate(_colorList.length, (index) {
       return IconButton(
           onPressed: () {
             setState(() {
@@ -54,6 +55,7 @@ class _PostCreateScreenState extends State<PostCreateScreen> {
         icon: const Icon(Icons.done_rounded, color: Colors.white, size: 30),
       ),
     );
+    super.initState();
   }
 
   @override
@@ -204,6 +206,15 @@ class _PostCreateScreenState extends State<PostCreateScreen> {
                                   if (!_isAction)
                                     IconButton(
                                       onPressed: () {
+                                        context.read<PostProvider>().addPost(
+                                              Post(
+                                                content: _postController.text,
+                                                color:
+                                                    _colorList[_selectedColor],
+                                                textSize: _sizeText,
+                                                author: "Anonymous",
+                                              ),
+                                            );
                                         Navigator.pop(context);
                                       },
                                       icon: const Icon(

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class Post {
-  final String title;
   final String content;
-  final IconData? icon;
-  final Color? color;
-  final String? author;
+  final double textSize;
+  final IconData icon;
+  final Color color;
+  final String author;
 
   Post({
-    required this.title,
     required this.content,
-    this.icon,
+    this.textSize = 24,
+    this.icon = Icons.handshake,
     this.color = Colors.red,
     this.author = "Anonymous",
   });

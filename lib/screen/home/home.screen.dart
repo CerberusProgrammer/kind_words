@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kind_words/providers/post.provider.dart';
+import 'package:kind_words/screen/post/post.view.screen.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,20 +13,32 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final posts = context.watch<PostProvider>().posts;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Screen'),
       ),
       body: GridView.count(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 8,
+        ),
         crossAxisCount: 2,
         childAspectRatio: 1 / 1.5,
         children: List.generate(
-          20,
+          posts.length,
           (index) => Card(
-            color: (index % 2 == 0) ? Colors.purple : Colors.red,
+            color: posts[index].color,
             child: InkWell(
-              onTap: () {},
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (builder) => PostViewScreen(
+                    post: posts[index],
+                  ),
+                ),
+              ),
               borderRadius: BorderRadius.circular(10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Align(
                           alignment: Alignment.center,
                           child: Icon(
-                            Icons.handshake_rounded,
+                            posts[index].icon,
                             size: 148,
                             color: Colors.black.withOpacity(0.15),
                           ),
@@ -47,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               vertical: 8,
                             ),
                             child: Text(
-                              'Welcome to my Application',
+                              posts[index].content,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 20,
@@ -69,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Padding(
                         padding: const EdgeInsets.only(right: 16.0, bottom: 8),
                         child: Text(
-                          'By John Doe',
+                          'By ${posts[index].author}',
                           style: TextStyle(
                               fontSize: 12,
                               color: Colors.white.withOpacity(0.5),
