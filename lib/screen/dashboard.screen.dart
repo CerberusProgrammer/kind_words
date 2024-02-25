@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kind_words/screen/home/home.screen.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:kind_words/screen/petition/petitions.screen.dart';
 import 'package:kind_words/screen/post/post.create.screen.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   final List<Widget> _children = const [
     HomeScreen(),
     Text('Ventana 2'),
-    Text('Ventana 3'),
+    PetitionsScreen(),
     Text('Ventana 4'),
   ];
 
