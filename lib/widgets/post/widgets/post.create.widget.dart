@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kind_words/widgets/post/post.controller.dart';
-import 'package:kind_words/widgets/post/post.dart';
+import 'package:kind_words/widgets/post/post.model.dart';
 
 class PostCreateScreen extends StatelessWidget {
   final _selectedColor = 1.obs;

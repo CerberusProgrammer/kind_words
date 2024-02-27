@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kind_words/widgets/post/posts.screen.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:kind_words/widgets/petition/petitions.screen.dart';
-import 'package:kind_words/widgets/post/post.create.screen.dart';
+import 'package:kind_words/widgets/post/widgets/post.create.widget.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -15,7 +15,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _children = const [
-    HomeScreen(),
+    PostScreen(),
     Text('Ventana 2'),
     PetitionsScreen(),
     Text('Ventana 4'),

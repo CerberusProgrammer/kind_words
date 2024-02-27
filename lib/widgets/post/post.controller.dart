@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:kind_words/widgets/post/post.dart';
+import 'package:kind_words/widgets/post/post.model.dart';
 
 class PostController extends GetxController {
   var posts = <Post>[Post(content: 'Hola mundo :)')].obs;
