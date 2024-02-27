@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kind_words/screen/home/home.screen.dart';
+import 'package:kind_words/home.screen.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:kind_words/screen/petition/petitions.screen.dart';
-import 'package:kind_words/screen/post/post.create.screen.dart';
+import 'package:kind_words/widgets/petition/screens/petitions.screen.dart';
+import 'package:kind_words/widgets/post/screens/post.create.screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -31,18 +31,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _children[_currentIndex],
-      floatingActionButton: FloatingActionButton(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-        onPressed: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (builder) => const PostCreateScreen(),
-          ),
-        ),
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: (_currentIndex == 0 || _currentIndex == 2)
+          ? FloatingActionButton(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (builder) => const PostCreateScreen(),
+                ),
+              ),
+              child: const Icon(Icons.add),
+            )
+          : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar(
         elevation: 10,
@@ -56,7 +58,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
         gapLocation: GapLocation.end,
         notchSmoothness: NotchSmoothness.softEdge,
         onTap: onTabTapped,
-        // Colores personalizados
         activeColor: Theme.of(context).colorScheme.primary,
         inactiveColor: Colors.grey,
         splashColor: Theme.of(context).colorScheme.primary,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kind_words/providers/post.provider.dart';
-import 'package:kind_words/screen/dashboard.screen.dart';
-import 'package:kind_words/config/theme/theme.provider.dart';
+import 'package:kind_words/widgets/post/providers/post.provider.dart';
+import 'package:kind_words/dashboard.screen.dart';
+import 'package:kind_words/core/config/theme/theme.provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {

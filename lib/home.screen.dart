@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kind_words/providers/post.provider.dart';
-import 'package:kind_words/screen/post/post.view.screen.dart';
+import 'package:kind_words/widgets/post/providers/post.provider.dart';
+import 'package:kind_words/widgets/post/screens/post.view.screen.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {

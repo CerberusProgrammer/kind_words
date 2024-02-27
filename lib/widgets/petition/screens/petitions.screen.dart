@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kind_words/screen/petition/petition.view.screen.dart';
+import 'package:kind_words/widgets/petition/screens/petition.view.screen.dart';
 
 class PetitionsScreen extends StatefulWidget {
   const PetitionsScreen({super.key});
@@ -16,9 +16,10 @@ class _PetitionsScreenState extends State<PetitionsScreen> {
         title: const Text('Petitions'),
       ),
       body: ListView.builder(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         itemBuilder: (context, index) {
           return SizedBox(
-            height: 256,
+            height: MediaQuery.of(context).size.height / 4,
             child: Card(
               elevation: 0,
               color: Colors.purple,
@@ -37,15 +38,15 @@ class _PetitionsScreenState extends State<PetitionsScreen> {
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         color: Colors.white,
-                        fontSize: 48,
+                        fontSize: 32,
                       ),
                     ),
                     Text(
-                      'By #$index',
+                      '- #$index',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white.withOpacity(0.4),
-                        fontSize: 18,
+                        fontSize: 16,
                       ),
                     ),
                   ],

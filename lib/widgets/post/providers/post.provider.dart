@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kind_words/models/post.dart';
+import 'package:kind_words/widgets/post/models/post.dart';
 
 class PostProvider extends ChangeNotifier {
   List<Post> posts = [

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kind_words/models/post.dart';
+import 'package:kind_words/widgets/post/models/post.dart';
 
 class PostViewScreen extends StatefulWidget {
   const PostViewScreen({super.key, required this.post});
