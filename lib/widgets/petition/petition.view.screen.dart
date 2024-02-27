@@ -50,12 +50,14 @@ class _PetitionViewScreenState extends State<PetitionViewScreen> {
                         child: Scaffold(
                           appBar: AppBar(),
                           body: ListView(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 16, vertical: 8),
                             children: [
                               Form(
                                 child: TextFormField(
-                                  validator: (value) {},
+                                  validator: (value) {
+                                    return null;
+                                  },
                                   maxLines: null,
                                   decoration: InputDecoration(
                                     hintText: 'Reply the petition...',

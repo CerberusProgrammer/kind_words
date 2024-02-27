@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kind_words/widgets/petition/screens/petition.view.screen.dart';
+import 'package:kind_words/widgets/petition/petition.view.screen.dart';
 
 class PetitionsScreen extends StatefulWidget {
   const PetitionsScreen({super.key});

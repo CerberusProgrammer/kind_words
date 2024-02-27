@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:kind_words/widgets/post/providers/post.provider.dart';
+import 'package:get/get.dart';
 import 'package:kind_words/dashboard.screen.dart';
-import 'package:kind_words/core/config/theme/theme.provider.dart';
-import 'package:provider/provider.dart';
+import 'package:kind_words/core/config/theme/theme.controller.dart';
+import 'package:kind_words/widgets/post/post.controller.dart';
 
 void main() {
   runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (_) => ThemeProvider(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => PostProvider(),
-        )
-      ],
-      child: const MainApp(),
+    GetMaterialApp(
+      initialBinding: BindingsBuilder(() {
+        Get.put(ThemeController());
+        Get.put(PostController());
+      }),
+      debugShowCheckedModeBanner: false,
+      home: const DashboardScreen(),
     ),
   );
 }
@@ -25,11 +22,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
+    final themeController = Get.find<ThemeController>();
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: themeProvider.appTheme,
+      theme: themeController.appTheme,
       home: const DashboardScreen(),
     );
   }
