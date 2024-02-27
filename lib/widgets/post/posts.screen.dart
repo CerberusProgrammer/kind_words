@@ -53,15 +53,14 @@ class PostScreen extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   height: constraints.maxHeight / 2.5,
-                  child: Expanded(
-                      child: Obx(() => AppinioSwiper(
-                            cardBuilder: (BuildContext context, int index) {
-                              return PostCard(
-                                post: posts[index],
-                              );
-                            },
-                            cardCount: posts.length,
-                          ))),
+                  child: Obx(() => AppinioSwiper(
+                        cardBuilder: (BuildContext context, int index) {
+                          return PostCard(
+                            post: posts[index],
+                          );
+                        },
+                        cardCount: posts.length,
+                      )),
                 )
               ])));
     }));
