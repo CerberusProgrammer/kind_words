@@ -15,7 +15,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _children = const [
-    PostScreen(),
+    PostsScreen(),
     Text('Ventana 2'),
     PetitionsScreen(),
     Text('Ventana 4'),
