@@ -3,8 +3,8 @@ import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kind_words/core/theme/theme.controller.dart';
-import 'package:kind_words/widgets/post/post.controller.dart';
-import 'package:kind_words/widgets/post/widgets/post-card.widget.dart';
+import 'package:kind_words/post/post.controller.dart';
+import 'package:kind_words/post/widgets/post-card.widget.dart';
 
 class PostsScreen extends StatelessWidget {
   const PostsScreen({super.key});

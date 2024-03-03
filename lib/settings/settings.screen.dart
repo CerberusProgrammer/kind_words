@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kind_words/widgets/settings/settings.change-brightness.dart';
-import 'package:kind_words/widgets/settings/settings.change-theme.dart';
+import 'package:kind_words/settings/settings.change-brightness.dart';
+import 'package:kind_words/settings/settings.change-theme.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});

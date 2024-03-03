@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class PetitionViewScreen extends StatefulWidget {
-  const PetitionViewScreen({super.key, required this.index});
+class ConnectionViewScreen extends StatefulWidget {
+  const ConnectionViewScreen({super.key, required this.index});
 
   final int index;
 
   @override
-  State<PetitionViewScreen> createState() => _PetitionViewScreenState();
+  State<ConnectionViewScreen> createState() => _ConnectionViewScreenState();
 }
 
-class _PetitionViewScreenState extends State<PetitionViewScreen> {
+class _ConnectionViewScreenState extends State<ConnectionViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

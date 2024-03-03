@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Petition {
+class Connection {
   final String title;
   final String content;
   final double textSize;
@@ -8,7 +8,7 @@ class Petition {
   final Color color;
   final String author;
 
-  Petition({
+  Connection({
     required this.title,
     required this.content,
     this.textSize = 24,

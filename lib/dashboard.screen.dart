@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kind_words/core/theme/theme.controller.dart';
-import 'package:kind_words/widgets/post/posts.screen.dart';
+import 'package:kind_words/post/posts.screen.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:kind_words/widgets/petition/petitions.screen.dart';
-import 'package:kind_words/widgets/post/widgets/post.create.widget.dart';
-import 'package:kind_words/widgets/settings/settings.screen.dart';
+import 'package:kind_words/connection/connection.screen.dart';
+import 'package:kind_words/post/widgets/post.create.widget.dart';
+import 'package:kind_words/settings/settings.screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -20,7 +20,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   final List<Widget> _children = [
     const PostsScreen(),
     const Text('Ventana 2'),
-    const PetitionsScreen(),
+    const ConnectionScreen(),
     const SettingsScreen(),
   ];
 

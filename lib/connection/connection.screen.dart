@@ -1,15 +1,15 @@
 import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:kind_words/widgets/petition/petition.view.screen.dart';
+import 'package:kind_words/connection/connection.view.screen.dart';
 
-class PetitionsScreen extends StatefulWidget {
-  const PetitionsScreen({super.key});
+class ConnectionScreen extends StatefulWidget {
+  const ConnectionScreen({super.key});
 
   @override
-  State<PetitionsScreen> createState() => _PetitionsScreenState();
+  State<ConnectionScreen> createState() => _ConnectionScreenState();
 }
 
-class _PetitionsScreenState extends State<PetitionsScreen> {
+class _ConnectionScreenState extends State<ConnectionScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,7 +28,7 @@ class _PetitionsScreenState extends State<PetitionsScreen> {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (builder) => PetitionViewScreen(index: index),
+                      builder: (builder) => ConnectionViewScreen(index: index),
                     ),
                   ),
                   borderRadius: BorderRadius.circular(10),
