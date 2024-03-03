@@ -2,6 +2,7 @@ import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kind_words/core/config/theme/theme.controller.dart';
 import 'package:kind_words/widgets/post/post.controller.dart';
 import 'package:kind_words/widgets/post/widgets/post-card.widget.dart';
 
@@ -11,13 +12,14 @@ class PostsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final posts = Get.find<PostController>().posts;
+    final themeController = Get.find<ThemeController>();
 
     return LayoutBuilder(builder: (context, constraints) {
       return DraggableHome(
-        title: Text('Be kind'),
+        title: const Text('Be kind'),
         headerWidget: Container(
           decoration: BoxDecoration(
-            color: Colors.purple,
+            color: themeController.primaryColor.value,
             borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(20),
               bottomRight: Radius.circular(20),
@@ -67,7 +69,7 @@ class PostsScreen extends StatelessWidget {
                       LinearProgressIndicator(
                         value: 0.2,
                         minHeight: 30,
-                        color: Colors.purple.shade800,
+                        color: themeController.primaryColor.value.shade800,
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ],

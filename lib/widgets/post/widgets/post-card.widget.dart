@@ -12,6 +12,7 @@ class PostCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 10,
       color: post.color,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

@@ -5,29 +5,25 @@ import 'package:kind_words/core/config/theme/theme.controller.dart';
 import 'package:kind_words/widgets/post/post.controller.dart';
 
 void main() {
-  runApp(
-    GetMaterialApp(
-      initialBinding: BindingsBuilder(() {
-        Get.put(ThemeController());
-        Get.put(PostController());
-      }),
-      debugShowCheckedModeBanner: false,
-      home: const DashboardScreen(),
-    ),
-  );
+  runApp(MainApp());
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  final ThemeController themeController = Get.put(ThemeController());
+
+  MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final themeController = Get.find<ThemeController>();
-
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: themeController.appTheme,
-      home: const DashboardScreen(),
-    );
+    return Obx(() {
+      return GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: themeController.themeData,
+        home: const DashboardScreen(),
+        initialBinding: BindingsBuilder(() {
+          Get.put(PostController());
+        }),
+      );
+    });
   }
 }
