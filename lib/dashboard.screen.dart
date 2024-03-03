@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kind_words/core/config/theme/theme.controller.dart';
+import 'package:kind_words/core/theme/theme.controller.dart';
 import 'package:kind_words/widgets/post/posts.screen.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:kind_words/widgets/petition/petitions.screen.dart';
@@ -21,7 +21,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     const PostsScreen(),
     const Text('Ventana 2'),
     const PetitionsScreen(),
-    SettingsScreen(),
+    const SettingsScreen(),
   ];
 
   void onTabTapped(int index) {

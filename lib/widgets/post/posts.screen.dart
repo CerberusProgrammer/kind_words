@@ -2,7 +2,7 @@ import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kind_words/core/config/theme/theme.controller.dart';
+import 'package:kind_words/core/theme/theme.controller.dart';
 import 'package:kind_words/widgets/post/post.controller.dart';
 import 'package:kind_words/widgets/post/widgets/post-card.widget.dart';
 

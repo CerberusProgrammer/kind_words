@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kind_words/dashboard.screen.dart';
-import 'package:kind_words/core/config/theme/theme.controller.dart';
+import 'package:kind_words/core/theme/theme.controller.dart';
 import 'package:kind_words/widgets/post/post.controller.dart';
 
 void main() {
