@@ -33,14 +33,17 @@ class PostsScreen extends StatelessWidget {
               )
             ],
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 32),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 32,
+              vertical: 32,
+            ),
             child: Column(
               children: [
-                const Row(
+                Row(
                   children: [
                     Text(
-                      'Bienvenido, Usuario',
+                      'Welcome, Usuario',
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.white,
@@ -52,47 +55,11 @@ class PostsScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Progreso de amabilidad',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white.withOpacity(0.75),
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      LinearProgressIndicator(
-                        value: 0.2,
-                        minHeight: 30,
-                        color: themeController.primaryColor.value.shade800,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Tarea del dia: Responder 10 peticiones.',
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(0.8),
-                        fontSize: 18,
-                      ),
-                    ),
-                  ],
-                )
               ],
             ),
           ),
         ),
-        headerExpandedHeight: 0.35,
+        headerExpandedHeight: 0.15,
         body: [
           const SizedBox(height: 60),
           Padding(

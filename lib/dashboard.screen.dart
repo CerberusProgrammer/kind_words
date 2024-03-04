@@ -20,8 +20,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   final List<Widget> _children = [
     const PostsScreen(),
-    const ChatsScreen(),
     const ConnectionScreen(),
+    const ChatsScreen(),
     const SettingsScreen(),
   ];
 
@@ -37,7 +37,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
     return Obx(() => Scaffold(
           body: _children[_currentIndex],
-          floatingActionButton: (_currentIndex == 0 || _currentIndex == 2)
+          floatingActionButton: (_currentIndex == 0 || _currentIndex == 1)
               ? FloatingActionButton(
                   backgroundColor: themeController.primaryColor.value.shade200,
                   shape: RoundedRectangleBorder(
@@ -57,8 +57,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
             elevation: 10,
             icons: const [
               Icons.home,
-              Icons.message_rounded,
               Icons.contact_support_outlined,
+              Icons.message_rounded,
               Icons.person_rounded,
             ],
             activeIndex: _currentIndex,

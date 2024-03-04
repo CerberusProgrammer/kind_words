@@ -1,6 +1,6 @@
 import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:kind_words/connection/connection.view.screen.dart';
+import 'package:kind_words/connection/connection.response.screen.dart';
 
 class ConnectionScreen extends StatefulWidget {
   const ConnectionScreen({super.key});
@@ -28,7 +28,8 @@ class _ConnectionScreenState extends State<ConnectionScreen> {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (builder) => ConnectionViewScreen(index: index),
+                      builder: (builder) =>
+                          ConnectionResponseScreen(index: index),
                     ),
                   ),
                   borderRadius: BorderRadius.circular(10),
