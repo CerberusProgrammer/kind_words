@@ -35,43 +35,45 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     final themeController = Get.find<ThemeController>();
 
-    return Obx(() => Scaffold(
-          body: _children[_currentIndex],
-          floatingActionButton: (_currentIndex == 0 || _currentIndex == 1)
-              ? FloatingActionButton(
-                  backgroundColor: themeController.primaryColor.value.shade200,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+    return Obx(
+      () => Scaffold(
+        body: _children[_currentIndex],
+        floatingActionButton: (_currentIndex == 0 || _currentIndex == 1)
+            ? FloatingActionButton(
+                backgroundColor: themeController.primaryColor.value.shade200,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (builder) => PostCreateScreen(),
                   ),
-                  onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (builder) => PostCreateScreen(),
-                    ),
-                  ),
-                  child: const Icon(Icons.add),
-                )
-              : null,
-          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-          bottomNavigationBar: AnimatedBottomNavigationBar(
-            elevation: 10,
-            icons: const [
-              Icons.home,
-              Icons.contact_support_outlined,
-              Icons.message_rounded,
-              Icons.person_rounded,
-            ],
-            activeIndex: _currentIndex,
-            gapLocation: GapLocation.end,
-            notchSmoothness: NotchSmoothness.softEdge,
-            onTap: onTabTapped,
-            backgroundColor: themeController.isDarkTheme.value == true
-                ? Colors.black
-                : Colors.white,
-            activeColor: themeController.primaryColor.value,
-            inactiveColor: Colors.grey,
-            splashColor: themeController.primaryColor.value,
-          ),
-        ));
+                ),
+                child: const Icon(Icons.add),
+              )
+            : null,
+        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+        bottomNavigationBar: AnimatedBottomNavigationBar(
+          elevation: 10,
+          icons: const [
+            Icons.home,
+            Icons.contact_support_outlined,
+            Icons.message_rounded,
+            Icons.person_rounded,
+          ],
+          activeIndex: _currentIndex,
+          gapLocation: GapLocation.end,
+          notchSmoothness: NotchSmoothness.softEdge,
+          onTap: onTabTapped,
+          backgroundColor: themeController.isDarkTheme.value == true
+              ? Colors.black
+              : Colors.white,
+          activeColor: themeController.primaryColor.value,
+          inactiveColor: Colors.grey,
+          splashColor: themeController.primaryColor.value,
+        ),
+      ),
+    );
   }
 }
