@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kind_words/chat/chat.screen.dart';
 import 'package:kind_words/core/theme/theme.controller.dart';
 import 'package:kind_words/post/posts.screen.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
@@ -19,7 +20,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   final List<Widget> _children = [
     const PostsScreen(),
-    const Text('Ventana 2'),
+    const ChatsScreen(),
     const ConnectionScreen(),
     const SettingsScreen(),
   ];
