@@ -1,30 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kind_words/core/theme/theme.controller.dart';
 
-class ConnectionViewScreen extends StatefulWidget {
-  const ConnectionViewScreen({
+class ConnectionViewScreen extends StatelessWidget {
+  ConnectionViewScreen({
     super.key,
     required this.index,
   });
 
   final int index;
+  final themeController = Get.find<ThemeController>();
 
-  @override
-  State<ConnectionViewScreen> createState() => _ConnectionViewScreenState();
-}
-
-class _ConnectionViewScreenState extends State<ConnectionViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Petition #${widget.index}'),
+        title: Text('Petition #$index'),
       ),
       body: Card(
         elevation: 0,
-        color: Colors.purple,
+        color: themeController.primaryColor.value,
         child: Center(
           child: Text(
-            'Petition #${widget.index}',
+            'Petition #$index',
             textAlign: TextAlign.center,
             style: const TextStyle(
               color: Colors.white,

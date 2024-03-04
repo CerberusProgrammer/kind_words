@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kind_words/core/theme/theme.controller.dart';
 
 class ConnectionResponseScreen extends StatefulWidget {
   const ConnectionResponseScreen({super.key, required this.index});
@@ -11,6 +13,8 @@ class ConnectionResponseScreen extends StatefulWidget {
 }
 
 class _ConnectionResponseScreenState extends State<ConnectionResponseScreen> {
+  final themeController = Get.find<ThemeController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +25,7 @@ class _ConnectionResponseScreenState extends State<ConnectionResponseScreen> {
         children: [
           Card(
             elevation: 0,
-            color: Colors.purple,
+            color: themeController.primaryColor.value,
             child: Center(
               child: Text(
                 'Petition #${widget.index}',

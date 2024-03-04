@@ -1,17 +1,16 @@
 import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kind_words/connection/connection.response.screen.dart';
+import 'package:kind_words/core/theme/theme.controller.dart';
 
-class ConnectionScreen extends StatefulWidget {
+class ConnectionScreen extends StatelessWidget {
   const ConnectionScreen({super.key});
 
   @override
-  State<ConnectionScreen> createState() => _ConnectionScreenState();
-}
-
-class _ConnectionScreenState extends State<ConnectionScreen> {
-  @override
   Widget build(BuildContext context) {
+    final themeController = Get.find<ThemeController>();
+
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -23,7 +22,7 @@ class _ConnectionScreenState extends State<ConnectionScreen> {
               cardCount: 50,
               cardBuilder: (context, index) => Card(
                 elevation: 10,
-                color: Colors.purple,
+                color: themeController.primaryColor.value,
                 child: InkWell(
                   onTap: () => Navigator.push(
                     context,
